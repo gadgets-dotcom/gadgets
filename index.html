@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind via CDN for quick styling -->
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root { --brand:#4f46e5; }
@@ -64,33 +65,37 @@
   <main class="max-w-6xl mx-auto px-4 mt-6">
     <div id="grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
     <div id="empty" class="hidden text-center text-slate-500 py-10">No deals found. Try another keyword.</div>
-
-    <!-- Latest Product Tweets -->
-    <section id="tweets" class="mt-10">
-      <div class="bg-white rounded-2xl shadow-lg p-6">
-        <h2 class="text-2xl font-bold mb-2">Latest product tweets</h2>
-        <p class="text-slate-600 mb-4">Auto-updating timelines + optional embedded tweet cards.</p>
-
-        <!-- Profile timelines (auto-updating) -->
-        <div class="grid md:grid-cols-2 gap-6">
-          <div>
-            <h3 class="font-semibold mb-2">@<span id="h1"></span></h3>
-            <a class="twitter-timeline" data-height="500" id="timeline1" href="#">Tweets by handle</a>
-          </div>
-          <div>
-            <h3 class="font-semibold mb-2">@<span id="h2"></span></h3>
-            <a class="twitter-timeline" data-height="500" id="timeline2" href="#">Tweets by handle</a>
-          </div>
-        </div>
-
-        <!-- Explicit tweet embeds -->
-        <div id="tweet-embeds" class="mt-8 grid md:grid-cols-2 gap-6"></div>
-        <p class="text-xs text-slate-500 mt-3">Tip: copy the URL of any tweet you posted (e.g., https://x.com/handle/status/12345) and add it to <code>TWEET_URLS</code> in the code.</p>
-      </div>
-    </section>
   </main>
 
-  <!-- Email Subscribe -->
+  <!-- Amazon Ad Block AE -->
+  <section class="max-w-6xl mx-auto px-4 mt-10">
+    <div class="bg-white rounded-2xl shadow-lg p-6 text-center">
+      <h2 class="text-xl font-bold mb-3">Featured Amazon AE Category</h2>
+      <a href="https://www.amazon.ae/alm/category?_encoding=UTF8&almBrandId=Wf2HUUZ9yC&node=15159993031&pd_rd_w=W3vp8&content-id=amzn1.sym.60659485-1948-4fcb-9440-2374de60b80b&pf_rd_p=60659485-1948-4fcb-9440-2374de60b80b&pf_rd_r=0ZCVRDPVRDZ3JT9WBXXN&pd_rd_wg=2bqo6&pd_rd_r=2f98f503-386a-4e02-9feb-57a6cc54a041&linkCode=ll2&tag=gadgetguy512-21&linkId=3fe93c2bc7edcf6503b5bf8692507154&language=en_AE&ref_=as_li_ss_tl" 
+         target="_blank" rel="nofollow noopener" 
+         class="inline-block">
+        <img src="https://images-na.ssl-images-amazon.com/images/G/01/associates/assoc_logo.png" 
+             alt="Shop on Amazon AE" class="mx-auto mb-3 w-40">
+        <p class="text-indigo-600 font-semibold">Shop Fresh Grocery & Essentials →</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Amazon Ad Block US -->
+  <section class="max-w-6xl mx-auto px-4 mt-10">
+    <div class="bg-white rounded-2xl shadow-lg p-6 text-center">
+      <h2 class="text-xl font-bold mb-3">Featured Amazon US Sale</h2>
+      <a href="https://www.amazon.com/events/labordaysale?&linkCode=ll2&tag=gadgetguy512-20&linkId=e68b214598906adb465233b0b050c56f&language=en_US&ref_=as_li_ss_tl"
+         target="_blank" rel="nofollow noopener"
+         class="inline-block">
+        <img src="https://images-na.ssl-images-amazon.com/images/G/01/associates/assoc_logo.png"
+             alt="Shop on Amazon US" class="mx-auto mb-3 w-40">
+        <p class="text-indigo-600 font-semibold">Shop Labor Day Sale →</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Email Subscribe (Formspree/Google Forms placeholder) -->
   <section id="subscribe" class="max-w-6xl mx-auto px-4 mt-10">
     <div class="bg-white rounded-2xl shadow-lg p-6 grid md:grid-cols-2 gap-6 items-center">
       <div>
@@ -101,18 +106,20 @@
         <input required name="email" type="email" placeholder="you@email.com" class="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500">
         <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-4 py-2 rounded-xl">Subscribe</button>
       </form>
-      <p class="text-xs text-slate-500 md:col-span-2">Prefer Google Forms? Replace this form with your public Google Form embed.</p>
+      <p class="text-xs text-slate-500 md:col-span-2">Tip: prefer Google Forms? Replace this form with your public Google Form embed code.</p>
     </div>
   </section>
 
-  <!-- Community -->
+  <!-- Social embeds / comments (optional) -->
   <section class="max-w-6xl mx-auto px-4 mt-10">
     <div class="bg-white rounded-2xl shadow-lg p-6">
       <h3 class="text-lg font-semibold mb-3">Community buzz</h3>
       <div class="grid md:grid-cols-2 gap-4">
+        <!-- X Timeline Embed (replace with your handle) -->
         <div class="min-h-[400px]">
           <a class="twitter-timeline" data-height="400" href="https://twitter.com/gardezi84?ref_src=twsrc%5Etfw">Tweets by @gardezi84</a>
         </div>
+        <!-- Telegram / WhatsApp CTA -->
         <div class="bg-slate-50 rounded-xl p-4">
           <p class="text-slate-700">Join the instant-alert channels:</p>
           <div class="mt-3 flex flex-wrap gap-3">
@@ -134,31 +141,44 @@
   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
   <script>
-  // ======== EDIT YOUR LINKS & TWEETS HERE ========
+  // ======== EDIT YOUR LINKS HERE ========
   const SETTINGS = {
     SITE_URL: location.href,
-    HANDLES: ['gardezi84','gadgetguy512'],  // both timelines shown above
+    X_HANDLE: 'gardezi84',              // for the timeline + Follow button
     X_URL: 'https://x.com/gardezi84',
     WHATSAPP: 'https://whatsapp.com/channel/0029VaPQWRGJkK76Zzdi133Y',
     TELEGRAM: 'https://t.me/your_channel',
-
-    // Paste individual product tweet URLs here to embed as cards
-    // Example: 'https://x.com/gardezi84/status/1829XXXXXXXXXXXXXXX'
-    TWEET_URLS: [
-      // === Paste your recent product tweets here ===
-      // 'https://x.com/gardezi84/status/XXXXXXXXXXXX',
-      // 'https://x.com/gadgetguy512/status/XXXXXXXXXXXX',
-    ],
   };
 
-  // ======== DEALS (edit freely) ========
+  // ======== ADD/EDIT DEALS HERE ========
   const DEALS = [
-    { id: 'deal-001', title: 'Retinol + Caffeine Under Eye Serum', price: '$14.99', link: 'https://amzn.to/4p0MlbQ', image: 'https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=800&q=60', category: 'Organic', tags: ['Skincare','Vegan'] },
-    { id: 'deal-002', title: 'Wireless Mini Car Vacuum 13000PA',   price: '$32.99', link: 'https://amzn.to/3URF1kP', image: 'https://images.unsplash.com/photo-1613442365733-3fa70168fca2?auto=format&fit=crop&w=800&q=60', category: 'Tech',    tags: ['Car','Cleaning'] },
-    { id: 'deal-003', title: 'Universal 70W GaN Travel Adapter',    price: '$49.99', link: 'https://amzn.to/4lAOFDs', image: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=800&q=60', category: 'Tech',    tags: ['Travel','Power'] },
+    {
+      id: 'deal-001',
+      title: 'Retinol + Caffeine Under Eye Serum',
+      price: '$14.99',
+      link: 'https://amzn.to/4p0MlbQ',
+      image: 'https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=800&q=60',
+      category: 'Organic', tags: ['Skincare','Vegan']
+    },
+    {
+      id: 'deal-002',
+      title: 'Wireless Mini Car Vacuum 13000PA',
+      price: '$32.99',
+      link: 'https://amzn.to/3URF1kP',
+      image: 'https://images.unsplash.com/photo-1613442365733-3fa70168fca2?auto=format&fit=crop&w=800&q=60',
+      category: 'Tech', tags: ['Car','Cleaning']
+    },
+    {
+      id: 'deal-003',
+      title: 'Universal 70W GaN Travel Adapter',
+      price: '$49.99',
+      link: 'https://amzn.to/4lAOFDs',
+      image: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=800&q=60',
+      category: 'Tech', tags: ['Travel','Power']
+    },
   ];
 
-  // ======== RENDER DEALS ========
+  // ======== RENDER ========
   const grid = document.getElementById('grid');
   const empty = document.getElementById('empty');
   const search = document.getElementById('search');
@@ -166,8 +186,9 @@
   const sortBtn = document.getElementById('sort');
   const todayCount = document.getElementById('todayCount');
   const lastUpdated = document.getElementById('lastUpdated');
+  const streakEl = document.getElementById('streak');
 
-  let sortMode = 'hot'; // hot | latest
+  let sortMode = 'hot';
 
   function getLikes(id){ return parseInt(localStorage.getItem('like:'+id) || '0'); }
   function setLike(id, val){ localStorage.setItem('like:'+id, String(val)); }
@@ -212,104 +233,10 @@
     lastUpdated.textContent = `Updated: ${new Date().toLocaleString()}`;
   }
 
-  // Like / Share handlers
   document.addEventListener('click', (e)=>{
     const likeBtn = e.target.closest('.like-btn');
     if (likeBtn){
       const id = likeBtn.dataset.id;
       let liked = isLiked(id);
       let count = getLikes(id);
-      if (liked){ count = Math.max(0, count-1); } else { count++; }
-      setLikesAndState(id, count, !liked, likeBtn);
-      return;
-    }
-    const shareBtn = e.target.closest('.share-btn');
-    if (shareBtn){
-      const url = shareBtn.dataset.link; const title = shareBtn.dataset.title;
-      if (navigator.share){ navigator.share({title, url}).catch(()=>{}); }
-      else { window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(title+' ' + url)}`,'_blank'); }
-      return;
-    }
-    const copyBtn = e.target.closest('.copy-btn');
-    if (copyBtn){ navigator.clipboard.writeText(copyBtn.dataset.link).then(()=>{ copyBtn.textContent='Copied!'; setTimeout(()=>copyBtn.textContent='Copy link', 1500); }); }
-  });
-
-  function setLikesAndState(id, count, liked, btn){
-    setLike(id, count); setLiked(id, liked);
-    btn.querySelector('.count').textContent = count;
-    btn.dataset.liked = liked ? 'true':'false';
-  }
-
-  // Sort & filter
-  document.getElementById('search').addEventListener('input', render);
-  document.getElementById('category').addEventListener('change', render);
-  document.getElementById('sort').addEventListener('click', ()=>{
-    sortMode = sortMode==='hot'?'latest':'hot';
-    document.getElementById('sort').textContent = `Sort: ${sortMode==='hot'?'Hottest':'Latest'}`;
-    render();
-  });
-
-  // Streak counter (naive client-side)
-  const todayKey = new Date().toISOString().slice(0,10);
-  const lastDay = localStorage.getItem('streak:last');
-  let streak = parseInt(localStorage.getItem('streak')||'0');
-  if (lastDay !== todayKey){
-    const y = new Date(); y.setDate(y.getDate()-1);
-    const yesterdayKey = y.toISOString().slice(0,10);
-    streak = (lastDay === yesterdayKey) ? streak+1 : 1;
-    localStorage.setItem('streak', String(streak));
-    localStorage.setItem('streak:last', todayKey);
-  }
-  document.getElementById('streak').textContent = localStorage.getItem('streak')||'1';
-
-  // Fill header links
-  document.getElementById('followX').href = SETTINGS.X_URL;
-  document.getElementById('joinWA').href = SETTINGS.WHATSAPP;
-  document.getElementById('tgLink').href = SETTINGS.TELEGRAM;
-  document.getElementById('waLink').href = SETTINGS.WHATSAPP;
-
-  // Site share
-  document.getElementById('shareSite').addEventListener('click', ()=>{
-    const url = SETTINGS.SITE_URL; const title = "Today’s Deals";
-    if (navigator.share){ navigator.share({title, url}).catch(()=>{}); }
-    else { navigator.clipboard.writeText(url); alert('Link copied!'); }
-  });
-
-  // ======== TWEET EMBEDS ========
-  // 1) Auto-updating profile timelines
-  const [h1,h2] = SETTINGS.HANDLES;
-  const t1 = document.getElementById('timeline1');
-  const t2 = document.getElementById('timeline2');
-  document.getElementById('h1').textContent = h1 || '';
-  document.getElementById('h2').textContent = h2 || '';
-  if (h1) t1.href = `https://twitter.com/${h1}?ref_src=twsrc%5Etfw`;
-  if (h2) t2.href = `https://twitter.com/${h2}?ref_src=twsrc%5Etfw`;
-
-  // 2) Explicit single-tweet embeds from URLs
-  function extractTweetId(url){
-    const m = url.match(/status\/(\d+)/);
-    return m ? m[1] : null;
-  }
-  function embedTweets(){
-    const wrap = document.getElementById('tweet-embeds');
-    wrap.innerHTML = '';
-    SETTINGS.TWEET_URLS.forEach(u => {
-      const id = extractTweetId(u);
-      if (!id) return;
-      const holder = document.createElement('div');
-      holder.className = 'bg-slate-50 rounded-xl p-2';
-      wrap.appendChild(holder);
-      if (window.twttr && twttr.widgets) {
-        twttr.widgets.createTweet(id, holder, { align: 'center' });
-      } else {
-        holder.innerHTML = `<blockquote class="twitter-tweet"><a href="${u}"></a></blockquote>`;
-      }
-    });
-  }
-
-  // Initial paint
-  render();
-  embedTweets();
-  </script>
-</body>
-</html>
+      if (liked){ count = Math.max(0, count-1
