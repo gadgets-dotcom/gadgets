@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Today’s 🔥 Deals</title>
+  <meta name="description" content="Daily tech, home, and organic product deals. Updated often—don’t miss the drops!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind via CDN for quick styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { --brand:#4f46e5; }
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji'; }
+    .clip { clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
+    .like-btn[data-liked="true"] { background: #fef3c7; border-color:#f59e0b; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <!-- Header / Hero -->
+  <header class="bg-gradient-to-br from-indigo-600 to-violet-600 text-white clip">
+    <div class="max-w-6xl mx-auto px-4 py-10">
+      <nav class="flex items-center justify-between">
+        <div class="text-xl font-bold">DealDrop<span class="opacity-80">.today</span></div>
+        <div class="flex items-center gap-3 text-sm">
+          <a id="followX" href="#" class="bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-lg">Follow on X</a>
+          <a id="joinWA" href="#" class="bg-white text-indigo-700 font-semibold px-3 py-1.5 rounded-lg">Join WhatsApp</a>
+        </div>
+      </nav>
+      <div class="mt-10 grid md:grid-cols-2 gap-6 items-center">
+        <div>
+          <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">Daily Deals you can actually use</h1>
+          <p class="mt-3 text-white/90">Curated tech gadgets, cozy home decor, and clean & organic picks. Updated all day. Tap the ⭐ to upvote a deal you love.</p>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <a href="#subscribe" class="bg-white text-indigo-700 font-semibold px-4 py-2 rounded-xl">Get Email Alerts</a>
+            <button id="shareSite" class="border border-white/30 px-4 py-2 rounded-xl">Share site</button>
+          </div>
+        </div>
+        <div class="bg-white/10 rounded-2xl p-4 backdrop-blur">
+          <p class="text-sm opacity-90">Today’s streak 🔥 <span id="streak">0</span> days of deals in a row</p>
+          <div class="mt-3 text-3xl font-bold" id="todayCount">0 deals live</div>
+          <div class="mt-1 text-sm opacity-90" id="lastUpdated">Updated just now</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Filters / Search -->
+  <section class="max-w-6xl mx-auto px-4 -mt-10">
+    <div class="bg-white shadow-lg rounded-2xl p-4 flex flex-wrap gap-3 items-center">
+      <input id="search" type="search" placeholder="Search: laptop, skincare, decor…" class="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500">
+      <select id="category" class="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2">
+        <option value="all">All</option>
+        <option>Tech</option>
+        <option>Home</option>
+        <option>Organic</option>
+        <option>Fashion</option>
+      </select>
+      <button id="sort" class="border border-slate-200 rounded-xl px-3 py-2">Sort: Hottest</button>
+    </div>
+  </section>
+
+  <!-- Deals Grid -->
+  <main class="max-w-6xl mx-auto px-4 mt-6">
+    <div id="grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+    <div id="empty" class="hidden text-center text-slate-500 py-10">No deals found. Try another keyword.</div>
+  </main>
+
+  <!-- Email Subscribe (Formspree/Google Forms placeholder) -->
+  <section id="subscribe" class="max-w-6xl mx-auto px-4 mt-10">
+    <div class="bg-white rounded-2xl shadow-lg p-6 grid md:grid-cols-2 gap-6 items-center">
+      <div>
+        <h2 class="text-2xl font-bold">Never miss a drop</h2>
+        <p class="text-slate-600 mt-1">Get a single daily email with the top 5 deals. Free + no spam.</p>
+      </div>
+      <form id="subForm" action="https://formspree.io/f/your_form_id" method="POST" class="flex gap-2">
+        <input required name="email" type="email" placeholder="you@email.com" class="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500">
+        <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-4 py-2 rounded-xl">Subscribe</button>
+      </form>
+      <p class="text-xs text-slate-500 md:col-span-2">Tip: prefer Google Forms? Replace this form with your public Google Form embed code.</p>
+    </div>
+  </section>
+
+  <!-- Social embeds / comments (optional) -->
+  <section class="max-w-6xl mx-auto px-4 mt-10">
+    <div class="bg-white rounded-2xl shadow-lg p-6">
+      <h3 class="text-lg font-semibold mb-3">Community buzz</h3>
+      <div class="grid md:grid-cols-2 gap-4">
+        <!-- X Timeline Embed (replace with your handle) -->
+        <div class="min-h-[400px]">
+          <a class="twitter-timeline" data-height="400" href="https://twitter.com/gardezi84?ref_src=twsrc%5Etfw">Tweets by @gardezi84</a>
+        </div>
+        <!-- Telegram / WhatsApp CTA -->
+        <div class="bg-slate-50 rounded-xl p-4">
+          <p class="text-slate-700">Join the instant‑alert channels:</p>
+          <div class="mt-3 flex flex-wrap gap-3">
+            <a id="tgLink" class="px-3 py-2 rounded-lg bg-[#24A1DE]/10 text-[#24A1DE] font-semibold" href="#">Telegram Channel</a>
+            <a id="waLink" class="px-3 py-2 rounded-lg bg-[#25D366]/10 text-[#1e9e50] font-semibold" href="#">WhatsApp Channel</a>
+          </div>
+          <p class="text-xs text-slate-500 mt-3">Tip: drop your channel links above.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="max-w-6xl mx-auto px-4 mt-10 mb-16 text-center text-sm text-slate-500">
+    <p>Prices and availability can change. Some links may be affiliate links. ❤️</p>
+  </footer>
+
+  <!-- X/Twitter script -->
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+  <script>
+  // ======== EDIT YOUR LINKS HERE ========
+  const SETTINGS = {
+    SITE_URL: location.href,
+    X_HANDLE: 'gardezi84',              // for the timeline + Follow button
+    X_URL: 'https://x.com/gardezi84',
+    WHATSAPP: 'https://whatsapp.com/channel/0029VaPQWRGJkK76Zzdi133Y',
+    TELEGRAM: 'https://t.me/your_channel',
+  };
+
+  // ======== ADD/EDIT DEALS HERE ========
+  // Minimal schema: id, title, price, link, image, category, tag(s)
+  // Tip: You can paste raw Amazon short links safely.
+  const DEALS = [
+    {
+      id: 'deal-001',
+      title: 'Retinol + Caffeine Under Eye Serum',
+      price: '$14.99',
+      link: 'https://amzn.to/4p0MlbQ',
+      image: 'https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=800&q=60',
+      category: 'Organic', tags: ['Skincare','Vegan']
+    },
+    {
+      id: 'deal-002',
+      title: 'Wireless Mini Car Vacuum 13000PA',
+      price: '$32.99',
+      link: 'https://amzn.to/3URF1kP',
+      image: 'https://images.unsplash.com/photo-1613442365733-3fa70168fca2?auto=format&fit=crop&w=800&q=60',
+      category: 'Tech', tags: ['Car','Cleaning']
+    },
+    {
+      id: 'deal-003',
+      title: 'Universal 70W GaN Travel Adapter',
+      price: '$49.99',
+      link: 'https://amzn.to/4lAOFDs',
+      image: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=800&q=60',
+      category: 'Tech', tags: ['Travel','Power']
+    },
+  ];
+
+  // ======== RENDER ========
+  const grid = document.getElementById('grid');
+  const empty = document.getElementById('empty');
+  const search = document.getElementById('search');
+  const category = document.getElementById('category');
+  const sortBtn = document.getElementById('sort');
+  const todayCount = document.getElementById('todayCount');
+  const lastUpdated = document.getElementById('lastUpdated');
+  const streakEl = document.getElementById('streak');
+
+  let sortMode = 'hot'; // hot | latest
+
+  function getLikes(id){ return parseInt(localStorage.getItem('like:'+id) || '0'); }
+  function setLike(id, val){ localStorage.setItem('like:'+id, String(val)); }
+  function isLiked(id){ return localStorage.getItem('liked:'+id) === '1'; }
+  function setLiked(id, liked){ localStorage.setItem('liked:'+id, liked ? '1' : '0'); }
+
+  function render(){
+    const q = search.value.trim().toLowerCase();
+    const cat = category.value;
+    let items = DEALS.filter(d => (cat === 'all' || d.category === cat) && (!q || (d.title.toLowerCase().includes(q) || d.tags.join(' ').toLowerCase().includes(q))));
+    if (sortMode === 'hot') items.sort((a,b)=>getLikes(b.id)-getLikes(a.id)); else items.reverse();
+
+    grid.innerHTML = '';
+    items.forEach(d => {
+      const likes = getLikes(d.id);
+      const liked = isLiked(d.id);
+      const card = document.createElement('article');
+      card.className = 'bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden flex flex-col';
+      card.innerHTML = `
+        <img src="${d.image}" alt="${d.title}" class="h-44 w-full object-cover"/>
+        <div class="p-4 flex-1 flex flex-col">
+          <h3 class="font-semibold line-clamp-2">${d.title}</h3>
+          <div class="mt-1 text-sm text-slate-600">Category: ${d.category}</div>
+          <div class="mt-3 text-2xl font-extrabold">${d.price}</div>
+          <div class="mt-3 flex gap-2 flex-wrap">
+            ${d.tags.map(t=>`<span class='text-xs bg-slate-100 px-2 py-1 rounded-lg'>${t}</span>`).join('')}
+          </div>
+          <div class="mt-4 grid grid-cols-2 gap-2">
+            <a href="${d.link}" target="_blank" rel="nofollow noopener" class="text-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-3 py-2 rounded-xl">Get Deal</a>
+            <button class="like-btn border border-amber-300 rounded-xl px-3 py-2" data-id="${d.id}" data-liked="${liked}">⭐ <span class="count">${likes}</span></button>
+          </div>
+          <div class="mt-3 flex gap-2 text-sm text-slate-600">
+            <button class="share-btn underline" data-link="${d.link}" data-title="${d.title}">Share</button>
+            <button class="copy-btn underline" data-link="${d.link}">Copy link</button>
+          </div>
+        </div>`;
+      grid.appendChild(card);
+    });
+
+    empty.classList.toggle('hidden', items.length !== 0);
+    todayCount.textContent = `${items.length} deal${items.length===1?'':'s'} live`;
+    lastUpdated.textContent = `Updated: ${new Date().toLocaleString()}`;
+  }
+
+  // Like / Share handlers
+  document.addEventListener('click', (e)=>{
+    const likeBtn = e.target.closest('.like-btn');
+    if (likeBtn){
+      const id = likeBtn.dataset.id;
+      let liked = isLiked(id);
+      let count = getLikes(id);
+      if (liked){ count = Math.max(0, count-1); } else { count++; }
+      setLikesAndState(id, count, !liked, likeBtn);
+      return;
+    }
+    const shareBtn = e.target.closest('.share-btn');
+    if (shareBtn){
+      const url = shareBtn.dataset.link; const title = shareBtn.dataset.title;
+      if (navigator.share){ navigator.share({title, url}).catch(()=>{}); }
+      else { window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(title+' ' + url)}`,'_blank'); }
+      return;
+    }
+    const copyBtn = e.target.closest('.copy-btn');
+    if (copyBtn){ navigator.clipboard.writeText(copyBtn.dataset.link).then(()=>{ copyBtn.textContent='Copied!'; setTimeout(()=>copyBtn.textContent='Copy link', 1500); }); }
+  });
+
+  function setLikesAndState(id, count, liked, btn){
+    setLike(id, count); setLiked(id, liked);
+    btn.querySelector('.count').textContent = count;
+    btn.dataset.liked = liked ? 'true':'false';
+  }
+
+  // Sort & filter
+  search.addEventListener('input', render);
+  category.addEventListener('change', render);
+  sortBtn.addEventListener('click', ()=>{ sortMode = sortMode==='hot'?'latest':'hot'; sortBtn.textContent = `Sort: ${sortMode==='hot'?'Hottest':'Latest'}`; render(); });
+
+  // Streak counter (naive client-side)
+  const todayKey = new Date().toISOString().slice(0,10);
+  const lastDay = localStorage.getItem('streak:last');
+  let streak = parseInt(localStorage.getItem('streak')||'0');
+  if (lastDay !== todayKey){
+    const y = new Date(); y.setDate(y.getDate()-1);
+    const yesterdayKey = y.toISOString().slice(0,10);
+    streak = (lastDay === yesterdayKey) ? streak+1 : 1;
+    localStorage.setItem('streak', String(streak));
+    localStorage.setItem('streak:last', todayKey);
+  }
+  document.getElementById('streak').textContent = localStorage.getItem('streak')||'1';
+
+  // Fill header links
+  document.getElementById('followX').href = SETTINGS.X_URL;
+  document.getElementById('joinWA').href = SETTINGS.WHATSAPP;
+  document.getElementById('tgLink').href = SETTINGS.TELEGRAM;
+  document.getElementById('waLink').href = SETTINGS.WHATSAPP;
+
+  // Site share
+  document.getElementById('shareSite').addEventListener('click', ()=>{
+    const url = SETTINGS.SITE_URL; const title = "Today’s Deals";
+    if (navigator.share){ navigator.share({title, url}).catch(()=>{}); }
+    else { navigator.clipboard.writeText(url); alert('Link copied!'); }
+  });
+
+  // Initial paint
+  render();
+  </script>
+</body>
+</html>
